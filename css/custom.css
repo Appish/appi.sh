@@ -1,3 +1,18 @@
+/*
+
+  Extending/overriding PureCSS styles
+
+  I've removed the breakpoints under 80em / 1280px
+
+  So, default is "mobile" with .pure-u-*
+
+  To target desktop view specifically, I use .pure-u-xl-*
+
+
+*/
+
+
+
 body {
   background: #2e2a24;
   color: #5ee081;
@@ -93,4 +108,15 @@ a {
 .custom-footer > p {
   font-size: 50%;
   margin-bottom: 2em;
+}
+
+.pure-hidden-mobile {
+  visibility: hidden;
+}
+
+/* pure-hidden-xl */
+@media screen and (min-width:80em) {
+  .pure-hidden-mobile {
+    visibility: visible;
+  }
 }
