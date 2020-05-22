@@ -11,7 +11,7 @@
 
 */
 
-
+/* general styles */
 
 body {
   background: #2e2a24;
@@ -19,21 +19,7 @@ body {
   font-size: 150%;
 }
 
-.custom-bordered {
- border-top: 1px solid rgba(0,0,0,0.3);
- border-bottom: 1px solid rgba(0,0,0,0.3);
- padding: 2em 20px 2em;
-}
 
-.custom-code-sh {
- background: black;
- color: #5ee081;
- border: 1px solid white;
- padding: 1em;
- margin-top: 1em;
- display: block;
- font-family: "Lucida Console", Monaco, monospace;
-}
 
 .center {
   text-align: center;
@@ -44,22 +30,12 @@ p {
   color: white;
 }
 
-.big-bottom-margin {
- margin: 2em 20px 2em;
-}
-
-.big-top-margin {
- margin-top: 3em;
-}
 
 .custom-site-logo {
   color: #5ee081;
   text-transform: none;
 }
 
-.custom-app-description {
-  padding-right: 2em;
-}
 
 .question {
   color: #fcfc7c;
@@ -110,13 +86,72 @@ a {
   margin-bottom: 2em;
 }
 
-.pure-hidden-mobile {
-  visibility: hidden;
+/* mobile only */
+@media screen and (max-width:79.938em) {
+  .pure-hidden-mobile {
+    display: none;
+  }
+
+  .custom-bordered {
+   border-top: 1px solid rgba(0,0,0,0.3);
+   border-bottom: 1px solid rgba(0,0,0,0.3);
+   padding: 1em 5px 1em;
+  }
+
+  .big-bottom-margin {
+   margin: 1em 5px 1em;
+  }
+
+  .mobile-padding {
+   margin: 1em 5px 1em;
+  }
+
+  .big-top-margin {
+   margin-top: 1em;
+  }
+
+  .custom-code-sh {
+   background: black;
+   color: #5ee081;
+   padding: 3px 1px 3px;
+   font-size:50%;
+   margin-top: 1em;
+   display: block;
+   font-family: "Lucida Console", Monaco, monospace;
+  }
+
+  .custom-app-description {
+    padding: 0 3px 0 3px;
+  }
 }
 
-/* pure-hidden-xl */
+/* desktop only */
 @media screen and (min-width:80em) {
-  .pure-hidden-mobile {
-    visibility: visible;
+  .big-bottom-margin {
+   margin: 2em 20px 2em;
+  }
+
+  .custom-bordered {
+   border-top: 1px solid rgba(0,0,0,0.3);
+   border-bottom: 1px solid rgba(0,0,0,0.3);
+   padding: 2em 5px 2em;
+  }
+
+  .big-top-margin {
+   margin-top: 3em;
+  }
+
+  .custom-code-sh {
+   background: black;
+   color: #5ee081;
+   border: 1px solid white;
+   padding: 1em;
+   margin-top: 1em;
+   display: block;
+   font-family: "Lucida Console", Monaco, monospace;
+  }
+
+  .custom-app-description {
+    padding-right: 2em;
   }
 }
