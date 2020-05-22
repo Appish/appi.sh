@@ -19,8 +19,6 @@ body {
   font-size: 150%;
 }
 
-
-
 .center {
   text-align: center;
   /* justify-content: center; */
@@ -30,12 +28,10 @@ p {
   color: white;
 }
 
-
 .custom-site-logo {
   color: #5ee081;
   text-transform: none;
 }
-
 
 .question {
   color: #fcfc7c;
@@ -66,12 +62,6 @@ a {
 
 }
 
-.custom-contact-form {
-  background: white;
-  padding: 2em;
-  color: black;
-  border-radius: 1em;
-}
 
 .custom-contact-form > fieldset {
   line-height: 3em;
@@ -123,6 +113,20 @@ a {
   .custom-app-description {
     padding: 0 3px 0 3px;
   }
+
+  .faq {
+    padding: 0 5px 0 5px;
+  }
+
+  .custom-contact-form {
+    background: white;
+    padding: 0 5px 0 5px;;
+    color: black;
+  }
+
+  label {
+    letter-spacing: 1px;
+  }
 }
 
 /* desktop only */
@@ -153,5 +157,12 @@ a {
 
   .custom-app-description {
     padding-right: 2em;
+  }
+
+  .custom-contact-form {
+    background: white;
+    padding: 2em;
+    color: black;
+    border-radius: 1em;
   }
 }

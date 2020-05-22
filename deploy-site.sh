@@ -6,6 +6,7 @@ mkdir -p build/
 # copy files to build dir
 cp index.html build/
 cp -r css/ build/
+cp -r thanks/ build/
 
 # sync build dir to S3 bucket
 cd build || exit 1
