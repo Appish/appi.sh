@@ -1,0 +1,48 @@
+body {
+  background: #2e2a24;
+  color: #5ee081;
+  font-size: 150%;
+}
+
+.custom-bordered {
+ border-top: 1px solid rgba(0,0,0,0.3);
+ border-bottom: 1px solid rgba(0,0,0,0.3);
+ padding: 2em 20px 2em;
+}
+
+.custom-code-sh {
+ background: black;
+ color: #5ee081;
+ border: 1px solid white;
+ padding: 1em;
+ margin-top: 1em;
+ display: block;
+ font-family: "Lucida Console", Monaco, monospace;
+}
+
+.center {
+  text-align: center;
+  /* justify-content: center; */
+}
+
+p {
+  color: white;
+}
+
+.big-bottom-margin {
+ margin: 2em 20px 2em;
+}
+
+.big-top-margin {
+ margin-top: 3em;
+}
+
+.custom-site-logo {
+  color: #5ee081;
+  text-transform: none;
+}
+
+.custom-app-description {
+  padding-right: 2em;
+
+}
