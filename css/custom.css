@@ -44,5 +44,53 @@ p {
 
 .custom-app-description {
   padding-right: 2em;
+}
 
+.question {
+  color: #fcfc7c;
+  margin-bottom: 1em;
+  font-style: oblique;
+}
+
+.question span {
+  color: #5ee081;
+}
+
+.answer {
+  color: white;
+  margin-bottom: 3em;
+}
+
+.answer span {
+  color: yellow;
+}
+
+.faq {
+  list-style: none;
+}
+
+a {
+  color: #5ee081;
+  text-decoration: underline dotted white;
+
+}
+
+.custom-contact-form {
+  background: white;
+  padding: 2em;
+  color: black;
+  border-radius: 1em;
+}
+
+.custom-contact-form > fieldset {
+  line-height: 3em;
+}
+
+.custom-contact-form  input, .custom-contact-form button, .custom-contact-form textarea {
+  width: 100%;
+}
+
+.custom-footer > p {
+  font-size: 50%;
+  margin-bottom: 2em;
 }
