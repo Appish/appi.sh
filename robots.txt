@@ -1,0 +1,5 @@
+Sitemap: https://appi.sh/sitemap.xml
+
+User-agent: *
+Disallow:
+

@@ -7,6 +7,10 @@ mkdir -p build/
 cp index.html build/
 cp -r css/ build/
 cp -r thanks/ build/
+cp -r icons/ build/
+cp robots.txt build/
+cp sitemap.xml build/
+cp favicon.ico build/
 
 # sync build dir to S3 bucket
 cd build || exit 1
