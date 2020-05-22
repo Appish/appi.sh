@@ -13,6 +13,10 @@
 
 /* general styles */
 
+video {
+  width: 100%;
+}
+
 body {
   background: #2e2a24;
   color: #5ee081;

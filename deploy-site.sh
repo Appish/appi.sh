@@ -1,12 +1,13 @@
 #!/bin/sh
 
 # prepare build dir
-mkdir -p build/
+mkdir -p build/thanks
 
 # copy files to build dir
-cp index.html build/
+html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes index.html > build/index.html
+html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes thanks/index.html > build/thanks/index.html
 cp -r css/ build/
-cp -r thanks/ build/
+uglifycss css/custom.css > build/custom.css
 cp -r icons/ build/
 cp robots.txt build/
 cp sitemap.xml build/
