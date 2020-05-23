@@ -12,6 +12,7 @@ cp -r icons/ build/
 cp robots.txt build/
 cp sitemap.xml build/
 cp favicon.ico build/
+cp launch.sh build/launch
 
 # sync build dir to S3 bucket
 cd build || exit 1
