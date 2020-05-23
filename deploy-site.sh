@@ -13,6 +13,7 @@ cp robots.txt build/
 cp sitemap.xml build/
 cp favicon.ico build/
 cp launch.sh build/launch
+cp appishdemo001.gif build/
 
 # sync build dir to S3 bucket
 cd build || exit 1

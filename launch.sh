@@ -53,30 +53,61 @@ download_source_site() {
 
   # strip all non-alpha characters from desturl, convert to lowercase
   OUTPUT_DIR_NAME="/tmp/$(echo "$DESTINATION_URL_HOST_PORT" | tr -cd '[:alnum:]-' | \
-    tr '[:upper:]' '[:lower:]')"
+    tr '[:upper:]' '[:lower:]')/"
 
   echo "Downloading source site to $OUTPUT_DIR_NAME ..."
 
   # download site quitely (TODO: add option to log output)
-  wget -P "$OUTPUT_DIR_NAME/" -nH -mpcq --user-agent="Appi.sh" -e robots=off \
-  --wait 1 -E "$SOURCE_URL"
+  WGET_OUTPUT="$(wget -P "$OUTPUT_DIR_NAME" -nH -mpcbq --user-agent="Appi.sh" \
+    -e robots=off --wait 1 -E "$SOURCE_URL" )"
 
-  DOWNLOADED_FILES="$(find "$OUTPUT_DIR_NAME" | wc -l)"
-  echo "Source site download complete, processing $DOWNLOADED_FILES files..."
+  WGET_PID="$( echo "${WGET_OUTPUT}" | awk '/ pid / { print 0 + $(NF); }' )"
+
+  # TODO: need to check site hasn't already finished downloading 
+  echo "$WGET_PID"
+
+  # while our wget is running, display progress
+  while true
+  do
+    # shellcheck disable=SC2009
+    # we know the PID and want to confirm name
+    if [ "$(ps -p "$WGET_PID" | grep wget 2> /dev/null )" = "" ] ; then
+      break
+    else
+      clear
+      echo ""
+      echo "====================================="
+      echo "  appi.sh: launchpad"
+      echo "====================================="
+      echo ""
+      echo ' Downloading your site....'
+
+      # TODO: check for dir existence first
+
+      FILES_SAVED="$( find "$OUTPUT_DIR_NAME" -type f | wc -l )"
+      SAVED_SIZE="$( du -sh "$OUTPUT_DIR_NAME" )"
+
+      echo " Downloaded $SAVED_SIZE in $FILES_SAVED files..."
+      sleep 0.5
+    fi
+  done
+
+  echo 'Downloading complete!'
 
   post_process_crawled_site
-
-  echo "Processing complete"
 }
 
 post_process_crawled_site() {
-  cd "$OUTPUT_DIR_NAME/" || exit 1
+  echo 'Processing saved site...'
+  cd "$OUTPUT_DIR_NAME" || exit 1
 
   # do straight source to destination replacement
   grep -Rl "$SOURCE_URL" . | xargs sed -i "s|$SOURCE_URL|$DESTINATION_URL|g"
 
   grep -Rl "$SOURCE_URL_HOST_PORT" . | xargs sed -i \
     "s|$SOURCE_URL_HOST_PORT|$DESTINATION_URL_HOST_PORT|g"
+
+  echo "Processing complete"
 }
 
 convert_site_destination_url_input() {
