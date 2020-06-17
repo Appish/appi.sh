@@ -107,6 +107,12 @@ post_process_crawled_site() {
   grep -Rl "$SOURCE_URL_HOST_PORT" . | xargs sed -i \
     "s|$SOURCE_URL_HOST_PORT|$DESTINATION_URL_HOST_PORT|g"
 
+  # TODO: appease shellcheck
+  for i in $(find . -type f)
+  do
+      mv "$i" "$(echo "$i" | cut -d? -f1)"
+  done
+
   echo "Processing complete"
 }
 
